@@ -1,0 +1,30 @@
+1)First change terminal to server and install npm init
+2)And then install npm i body-parser cors dotenv express nodemon openai
+3)Above installed all are needed dependencies
+4)Add "type": "module" in package.json
+5)Next goto package.json and add nodemon index.json in script tag like shown below:
+	  "scripts": {
+    	  "start": "nodemon index.js"
+ 		     },
+6)And create a file in server index.js
+7)Then type in index.js :-
+  	import express from "express";
+	import cors from 'cors';
+	import bodyParser from "body-parser";
+	import env from 'dotenv';
+	import { Configuration, OpenAIApi } from "openai";
+
+	const app = express()
+
+	env.config()
+
+	app.use(cors())
+	app.use(bodyParser.json())
+
+	app.listen("3080", ()=>console.log("listening on port 3080"))
+
+	app.get("/", (req,res) => {
+        res.send("Hello world")
+	})
+8)And type npm start in terminal then we can listening on port 3080
+9)And goto browser and type: localhost:3080 then we can see the output helloworld in browser
